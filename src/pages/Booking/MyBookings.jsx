@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
+import { Bot, MapPin } from 'lucide-react';
 
 function MyBookings({ role, doctorName, user, bookings, navatars, onSelectBookingForCancellation }) {
     const navigate = useNavigate();
@@ -135,24 +136,30 @@ function MyBookings({ role, doctorName, user, bookings, navatars, onSelectBookin
                         >
                             <div className="booking-info">
                                 <div className='navatar-details'>
-                                    <div>Navatar: {navatar?.navatar_name || 'Unknown Navatar'}</div>
-                                    <div className="booking-location">Location: {navatar?.location || 'Location not set'}</div>
+                                    <div>
+                                        <Bot />
+                                        {navatar?.navatar_name || 'Unknown Navatar'}
+                                    </div>
+                                    <div className="booking-location">
+                                        <MapPin />
+                                        {navatar?.location || 'Location not set'}
+                                    </div>
                                 </div>
-                                <div className="time-detalis">
-                                    <span>{format(slot.date, 'MMMM d, yyyy')}</span>
-                                    <span>
+                                <div className="time-details">
+                                    <div>
+                                        {format(slot.date, 'MMMM d, yyyy')}
+                                    </div>
+                                    <div>
                                         {new Date(`1970-01-01T${slot.start_time}`).toLocaleTimeString([], {
                                             hour: '2-digit',
                                             minute: '2-digit',
                                         })}
-                                    </span>
-                                    -
-                                    <span>
+                                        -
                                         {new Date(`1970-01-01T${slot.end_time}`).toLocaleTimeString([], {
                                             hour: '2-digit',
                                             minute: '2-digit',
                                         })}
-                                    </span>
+                                    </div>
                                 </div>
                             </div>
                             <div className="booking-actions">
