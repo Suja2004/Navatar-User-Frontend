@@ -67,14 +67,10 @@
   flex-shrink: 0;
 }
 
-.joystick-handle.ready {
+.joystick-handle {
   width: 80px;
   height: 80px;
-  background: linear-gradient(
-    135deg,
-    var(--primary-blue) 0%,
-    var(--primary-dark) 100%
-  );
+
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -90,8 +86,13 @@
   background: var(--warning-yellow);
 }
 
-.joystick-handle:active {
+.joystick-handle.ready {
   cursor: grabbing;
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue) 0%,
+    var(--primary-dark) 100%
+  );
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -149,20 +150,20 @@
 }
 
 .status-connected {
-  background-color: #d4f7d4; 
+  background-color: #d4f7d4;
   color: #2ec72e;
   border-color: #2ec72e;
 }
 
 .status-connecting {
-  background-color: #fff6d1; 
+  background-color: #fff6d1;
   color: #c9a703;
   border-color: #c9a703;
 }
 
 .status-disconnected {
   background-color: #f7d4d4;
-  color: #d12e2e; 
+  color: #d12e2e;
   border-color: #d12e2e;
 }
 
