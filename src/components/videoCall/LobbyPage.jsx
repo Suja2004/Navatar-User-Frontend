@@ -17,7 +17,7 @@ const mqttOptions = {
 
 const LobbyPage = ({ initialUser, initialRoomId }) => {
   const [name, setName] = useState(initialUser?.name || "");
-  const [roomId, setRoomId] = useState(initialRoomId || "");
+  const [roomId, setRoomId] = useState(() => String(initialRoomId || ""));
   const [user, setUser] = useState(initialUser || null);
   const [isVideoOn, setIsVideoOn] = useState(true);
   const [isAudioOn, setIsAudioOn] = useState(true);
@@ -49,7 +49,7 @@ const LobbyPage = ({ initialUser, initialRoomId }) => {
   }, []);
 
   const handleJoin = () => {
-    if (name.trim() && roomId) {
+    if (name.trim() && roomId.trim()) {
       const userData = {
         name: name.trim(),
         email: `${name.trim()}@conference.com`,
@@ -204,7 +204,7 @@ const LobbyPage = ({ initialUser, initialRoomId }) => {
 
           <button
             onClick={handleJoin}
-            disabled={!name.trim() || !roomId}
+            disabled={!name.trim() || !roomId.trim()}
             className="join-btn"
           >
             Join Conference

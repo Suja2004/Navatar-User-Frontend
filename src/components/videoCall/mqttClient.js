@@ -1,7 +1,5 @@
-// mqttClient.js
 import mqtt from 'mqtt';
 
-// Use the correct WebSocket URL format for HiveMQ Cloud
 const client = mqtt.connect('wss://a9088c6daa9e41e4b8f965ad7fd902a5.s1.eu.hivemq.cloud:8884/mqtt', {
   username: 'yogin',
   password: 'Yogin@2004',
@@ -11,7 +9,6 @@ const client = mqtt.connect('wss://a9088c6daa9e41e4b8f965ad7fd902a5.s1.eu.hivemq
   connectTimeout: 30000
 });
 
-// Add detailed logging
 client.on('connect', () => {
   // console.log('✅ Web MQTT Client Connected');
 });
