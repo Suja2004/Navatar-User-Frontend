@@ -68,11 +68,6 @@ const LobbyPage = ({ initialUser, initialRoomId }) => {
     navigate("/booking");
   };
 
-  // const generateRoomId = () => {
-  //   const id = Math.random().toString(36).substring(2, 12);
-  //   setRoomId(id);
-  // };
-
   const toggleVideo = async () => {
     if (isVideoOn && previewStream) {
       const videoTrack = previewStream.getVideoTracks()[0];
@@ -145,8 +140,6 @@ const LobbyPage = ({ initialUser, initialRoomId }) => {
     <div className="lobby-container">
       <div className="lobby-card">
         <div className="preview-section">
-          <h1 className="lobby-title">Video Conference</h1>
-
           <div className="video-preview">
             <video
               ref={videoRef}
