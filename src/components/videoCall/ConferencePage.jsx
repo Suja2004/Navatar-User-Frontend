@@ -444,6 +444,7 @@ const ConferencePage = ({ user, room, onLeave, fullScreen, toggleFullScreen }) =
       </div>
 
       <ControlPanel
+        room={room}
         isVideoOn={isVideoOn}
         isAudioOn={isAudioOn}
         showChat={showChat}

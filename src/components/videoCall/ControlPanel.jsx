@@ -9,9 +9,11 @@ import {
   Users,
   Expand,
   Shrink,
+  Link,
 } from "lucide-react";
 
 const ControlPanel = ({
+  room,
   isVideoOn,
   isAudioOn,
   showChat,
@@ -56,6 +58,21 @@ const ControlPanel = ({
         >
           {fullScreen ? <Shrink /> : <Expand />}
         </button>
+        <button
+          className="control-button"
+          onClick={() => {
+            const url = `https://web-rtc-neon.vercel.app/${room}`;
+            navigator.clipboard.writeText(url).then(() => {
+              alert("Room link copied to clipboard!");
+            }).catch(() => {
+              alert("Failed to copy room link.");
+            });
+          }}
+          title="Copy room link"
+        >
+          <Link />
+        </button>
+
       </div>
 
       <div className="control-group secondary-controls">
